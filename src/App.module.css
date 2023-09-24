@@ -1,0 +1,14 @@
+.app {
+  background-color: #bdbdbd;
+  min-height: 120vh;
+  text-align: center;
+}
+
+.main_header {
+  text-align: center;
+  background-color: lightslategray;
+  color: white;
+  padding: 2rem 0;
+  font-weight: 700;
+  font-size: 2.5rem;
+}

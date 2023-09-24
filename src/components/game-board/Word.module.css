@@ -1,0 +1,9 @@
+.word {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    margin: auto;
+    max-width: 100% !important;
+    display: flex;
+    justify-content: center;
+}

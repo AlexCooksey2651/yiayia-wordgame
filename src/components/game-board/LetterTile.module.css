@@ -1,0 +1,13 @@
+.letter {
+    border-bottom: 2px solid black;
+    height: 3rem;
+    width: 3rem;
+    font-size: 2.25rem;
+    margin: 0 1rem;
+}
+
+.punctuation {
+    height: 3rem;
+    width: 3rem;
+    font-size: 2.25rem;
+}

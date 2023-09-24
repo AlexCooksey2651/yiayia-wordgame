@@ -1,0 +1,26 @@
+.gameBoard {
+    margin-top: 4rem;
+}
+
+.word_row {
+    max-width: 1200px;
+    margin: 2rem auto;
+}
+
+.word_col {
+    text-align: center;
+}
+
+.numberEntry_row {
+    margin-top: 4rem;
+}
+
+.errorAlert {
+    width: 30%;
+    margin: 0 auto 1rem auto;
+}
+
+.guesses {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
