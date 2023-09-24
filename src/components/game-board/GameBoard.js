@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./GameBoard.module.css";
-import { Container, Row, Col, Button, Alert } from "react-bootstrap";
+import { Container, Row, Col, Alert } from "react-bootstrap";
 import Word from "./Word";
 import LetterEntryForm from "./LetterEntryForm";
 import LetterKey from "./LetterKey";
