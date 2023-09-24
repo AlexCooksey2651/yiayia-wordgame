@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import styles from "./NumberEntryForm.module.css";
+import styles from "./LetterEntryForm.module.css";
 import { Col, Form, Row, Button } from "react-bootstrap";
 
-const NumberEntryForm = ({ checkGuess, setErrorMessage }) => {
+const LetterEntryForm = ({ checkGuess, setErrorMessage }) => {
   const [guess, setGuess] = useState("");
 
   const handleSubmitGuess = (e) => {
@@ -22,7 +22,7 @@ const NumberEntryForm = ({ checkGuess, setErrorMessage }) => {
     <Form onSubmit={handleSubmitGuess} className={styles.number_form}>
       <Row className="align-items-center">
         <Col xs={8}>
-          <Form.Control type="number" placeholder="Please enter your guess here" value={guess} onChange={(e)=> setGuess(e.target.value)}/>
+          <Form.Control type="text" maxLength={1} placeholder="Guess a letter here" value={guess} onChange={(e)=> setGuess(e.target.value)}/>
         </Col>
         <Col>
             <Button type="submit">Guess</Button>
@@ -32,4 +32,4 @@ const NumberEntryForm = ({ checkGuess, setErrorMessage }) => {
   );
 };
 
-export default NumberEntryForm;
+export default LetterEntryForm;

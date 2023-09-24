@@ -1,26 +1,34 @@
+.instructions {
+  text-align: center;
+  width: 1400px;
+  margin: 2rem auto;
+  line-height: 2rem;
+  font-size: 1.25rem;
+}
+
 .gameBoard {
-    margin-top: 4rem;
+  margin-top: 4rem;
 }
 
 .word_row {
-    max-width: 1200px;
-    margin: 2rem auto;
+  max-width: 1200px;
+  margin: 2rem auto;
 }
 
 .word_col {
-    text-align: center;
+  text-align: center;
 }
 
 .numberEntry_row {
-    margin-top: 4rem;
+  margin-top: 4rem;
 }
 
 .errorAlert {
-    width: 30%;
-    margin: 0 auto 1rem auto;
+  width: 30%;
+  margin: 0 auto 1rem auto;
 }
 
 .guesses {
-    font-size: 1.5rem;
-    font-weight: 500;
+  font-size: 1.5rem;
+  font-weight: 500;
 }
