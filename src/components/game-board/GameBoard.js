@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import styles from "./GameBoard.module.css";
-import { Container, Row, Col, Alert } from "react-bootstrap";
+import { Container, Row, Col, Alert, Button } from "react-bootstrap";
 import Word from "./Word";
 import LetterEntryForm from "./LetterEntryForm";
+import SentenceEntryForm from "./SentenceEntryForm";
 import LetterKey from "./LetterKey";
 import Confetti from "react-confetti";
 
@@ -26,20 +27,12 @@ const LETTERS = [
   "D",
 ];
 
-function solutions(str) {
-  let solutions = {};
-  for (let i = 1; i <= str.length; i++) {
-    let newNum = i ** 2 + 19;
-    solutions[newNum] = str[i - 1];
-  }
-  return solutions;
-}
-
-const SOLUTION_KEY = solutions("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
-console.log(SOLUTION_KEY);
+const SENTENCE1 = "YOU'RE GOING TO BE A GREAT-GRANDMOTHER!";
+const SENTENCE2 = "YOU'RE GOING TO BE A GREAT-GRANDMOTHER"
 
 const GameBoard = () => {
   const [guesses, setGuesses] = useState([]);
+  const [guessLetter, setGuessLetter] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
   const [finished, setFinished] = useState(false);
 
@@ -65,14 +58,37 @@ const GameBoard = () => {
     }
   };
 
+  const checkSentenceGuess = (sentence) => {
+    const converted = sentence.toUpperCase();
+    if (converted === SENTENCE1 || converted === SENTENCE2) {
+      setGuesses([
+        "Y",
+        "O",
+        "U",
+        "R",
+        "E",
+        "G",
+        "I",
+        "N",
+        "T",
+        "B",
+        "A",
+        "M",
+        "H",
+        "D",
+      ]);
+      setFinished(true);
+    } else {
+      setErrorMessage(
+        "That's not quite right. Feel free to try again, or go back to guessing letters."
+      );
+    }
+  };
+
   return (
     <Container fluid className={styles.gameBoard}>
       <Row>
         <Col>
-          {/* <p><em>Warning: Clicking this will clear the game board!</em></p>
-          <Button onClick={() => setGameStarted(false)}>
-            Return to Home Screen
-          </Button> */}
           <h2>Instructions:</h2>
           <p className={styles.instructions}>
             Fill in the sentence by matching letters to the numbers you see in
@@ -84,6 +100,7 @@ const GameBoard = () => {
             Use the Letter Key below for help figuring out which letter matches
             a number.
           </p>
+          <p className={styles.instructions}>If you want, you can also try guessing the full sentence (punctuation matters!). Enjoy!</p>
           <LetterKey />
         </Col>
       </Row>
@@ -109,10 +126,28 @@ const GameBoard = () => {
         ))}
       </Row>
       <Row>
-        <LetterEntryForm
-          checkGuess={checkGuess}
-          setErrorMessage={setErrorMessage}
-        />
+        <Col xs={12}>
+          {guessLetter ? (
+            <LetterEntryForm
+              checkGuess={checkGuess}
+              setErrorMessage={setErrorMessage}
+            />
+          ) : (
+            <SentenceEntryForm
+              checkSentenceGuess={checkSentenceGuess}
+              setErrorMessage={setErrorMessage}
+            />
+          )}
+        </Col>
+        <br />
+        <Col xs={12}>
+          <Button
+            className={styles.toggle_btn}
+            onClick={() => setGuessLetter(!guessLetter)}
+          >
+            {guessLetter ? "Guess Full Sentence?" : "Guess Single Letter?"}
+          </Button>
+        </Col>
       </Row>
       {errorMessage && (
         <Alert className={styles.errorAlert} variant="primary">

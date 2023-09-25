@@ -28,6 +28,11 @@
   margin: 0 auto 1rem auto;
 }
 
+.toggle_btn {
+    width: 250px;
+    margin: 1rem auto;
+}
+
 .guesses {
   font-size: 1.5rem;
   font-weight: 500;
